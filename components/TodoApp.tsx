@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { TodoList } from './TodoList'
-import { addTodo, getAllTodos } from '../utils/supabaseFunctions'
+import { addTodo, deleteTodo, getAllTodos } from '../utils/supabaseFunctions'
 import { Todo } from '../utils/interface'
 
 export function TodoApp() {
@@ -24,6 +24,11 @@ export function TodoApp() {
     setTitle('')
   }
 
+  const handleDelete = async (id: number) => {
+    const updatedTodos = todos.filter(todo => todo.id !== id)
+    setTodos(updatedTodos)
+  }
+
   return (
     <div>
       <h2 className='mb-2 text-2xl text-center'>Next.js & SupaBase</h2>
@@ -31,7 +36,7 @@ export function TodoApp() {
         <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" className='shadow-lg p-2 outline-none' />
         <button className='shadow-md bottom-2 p-2 rounded-md'>Add</button>
       </form>
-      <TodoList todos={todos}></TodoList>
+      <TodoList todos={todos} handleDelete={handleDelete}></TodoList>
     </div>
   )
 }

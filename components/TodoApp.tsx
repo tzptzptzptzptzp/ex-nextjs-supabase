@@ -10,7 +10,6 @@ export function TodoApp() {
     const getTodos = async () => {
       const todos = await getAllTodos()
       setTodos(todos!)
-      console.log(todos);
     }
     getTodos()
   }, [])
@@ -22,7 +21,7 @@ export function TodoApp() {
         <input type="text" className='shadow-lg p-2 outline-none' />
         <button className='shadow-md bottom-2 p-2 rounded-md'>Add</button>
       </form>
-      <TodoList></TodoList>
+      <TodoList todos={todos}></TodoList>
     </div>
   )
 }

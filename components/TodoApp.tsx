@@ -19,6 +19,8 @@ export function TodoApp() {
     e.preventDefault()
     if (title === '') return
     await addTodo(title)
+    let todos = await getAllTodos()
+    setTodos(todos!)
     setTitle('')
   }
 

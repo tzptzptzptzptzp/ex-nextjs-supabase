@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { TodoList } from './TodoList'
+import { getAllTodos } from '../utils/supabaseFunctions'
+import { Todo } from '../utils/interface'
 
 export function TodoApp() {
+  const [todos, setTodos] = useState<Todo[]>([])
+
+  useEffect(() => {
+    const getTodos = async () => {
+      const todos = await getAllTodos()
+      setTodos(todos!)
+      console.log(todos);
+    }
+    getTodos()
+  }, [])
+
   return (
     <div>
       <h2 className='mb-2 text-2xl text-center'>Next.js & SupaBase</h2>

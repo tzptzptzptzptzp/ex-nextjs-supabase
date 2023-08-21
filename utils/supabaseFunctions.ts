@@ -9,6 +9,10 @@ export const addTodo = async (title: string) => {
   await supabase.from("todo").insert({ title: title });
 };
 
+export const updateTodo = async (id: number, title: string) => {
+  await supabase.from("todo").update({ title: title }).eq("id", id);
+};
+
 export const deleteTodo = async (id: number) => {
   await supabase.from("todo").delete().eq("id", id);
 };

@@ -5,6 +5,10 @@ export const getAllTodos = async () => {
   return todos.data;
 };
 
+export const getTodo = async (id: number) => {
+  await supabase.from("todo").select("*").eq("id", id).single();
+};
+
 export const addTodo = async (title: string) => {
   await supabase.from("todo").insert({ title: title });
 };

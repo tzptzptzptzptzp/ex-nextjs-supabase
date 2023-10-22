@@ -24,3 +24,32 @@ npm を使用しています
 npm
 npm run dev // 開発用サーバー起動
 ```
+
+---
+
+## Introduction
+
+This is a Todo management app utilizing Next.js and Supabase.  
+It supports CRUD operations.
+
+## Technologies Used
+
+Frontend:
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwindcss](https://tailwindcss.com/)
+
+Backend:
+
+- [Supabase](https://supabase.com/)
+
+## Development Steps
+
+Using npm:
+
+```bash
+npm
+npm run dev // Start the development server
+```
